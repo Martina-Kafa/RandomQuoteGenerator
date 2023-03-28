@@ -88,7 +88,7 @@ button.active:hover {
     background: #4fc3dc;
     margin: 0 4px;
     border-radius:  50%;
-    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    box-shadow: 0 0 0 10px rgba(79, 195, 220, 0.2), 0 0 50px rgba(79, 195, 220, 0.5), 0 0 100px rgba(79, 195, 220, 0.8);
     animation: animate 15s linear infinite;
     animation-duration: calc(120s / var(--i));
     /* The calculation being performed here is 120s / var(--i), which is dividing the duration of the animation (120 seconds) by the value of a CSS custom property called --i. CSS custom properties (also known as CSS variables) are used to store and reuse values in your CSS code. So, the value of animation-duration is being dynamically determined based on the value of --i. If the value of --i is small, then the animation duration will be longer, and if the value of --i is large, then the animation duration will be shorter. */
@@ -101,9 +101,42 @@ button.active:hover {
 
 @keyframes animate {
     0% {
-        transform: translateY(100vh) scale(0);
+        transform: translateY(100vh) scale(-1);
     }
     100% {
         transform: translateY(+10vh) scale(1);
     }
 }
+
+
+@media screen and (max-width: 768px) {
+  .bubbles span {
+    width: 15px;
+    height: 15px;
+    box-shadow: 0 0 0 5px rgba(79, 195, 220, 0.2), 0 0 25px rgba(79, 195, 220, 0.5), 0 0 50px rgba(79, 195, 220, 0.8);
+  }
+  .bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 5px #ff2d7544, 0 0 25px #ff2d75, 0 0 50px #ff2d75;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+  .bubbles span {
+    width: 5px;
+    height: 5px;
+    box-shadow: 0 0 0 3px rgba(79, 195, 220, 0.2), 0 0 15px rgba(79, 195, 220, 0.5), 0 0 30px rgba(79, 195, 220, 0.8);
+    margin: 0 1px;
+    
+  }
+  .bubbles span:nth-child(even) {
+    box-shadow: 0 0 0 3px #ff2d7544, 0 0 15px #ff2d75, 0 0 30px #ff2d75;
+}
+}
+
+
+
+
+
+
