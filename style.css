@@ -1,0 +1,109 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c192c;
+    font-family: 'Indie Flower', cursive;
+    
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 40px;
+    width: 80%;
+    height: 40%;
+    border-radius: 20px;
+    background-color: transparent;
+    z-index: 1;
+    position: fixed;
+}
+
+.quote_text {
+    color: wheat;
+    margin: 0;
+    font-size: clamp(1.5rem, 2vw, 3rem); 
+    /* clamp() is a CSS function that allows you to define a value that falls within a specific range, based on the size of the container or viewport. It takes three arguments: clamp(minimum, preferred, maximum)
+    minimum: the minimum value the property can take
+    preferred: the preferred value the property should take
+    maximum: the maximum value the property can take
+    The clamp() function will then return the value that is closest to the preferred value, but still falls within the minimum and maximum range.   */
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+   
+}
+
+.quote_author {
+    color: gray;
+    text-align: center;
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    font-family: 'Zeyada', cursive;
+}
+
+button {
+    width: 40%;
+    margin: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    color: gray;
+    border: none;
+}
+
+button.active {
+    color: wheat;
+    background-color: #ff2d7544;
+}
+
+button.active:hover {
+    background-color: #4fc3dc44;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius:  50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(120s / var(--i));
+    /* The calculation being performed here is 120s / var(--i), which is dividing the duration of the animation (120 seconds) by the value of a CSS custom property called --i. CSS custom properties (also known as CSS variables) are used to store and reuse values in your CSS code. So, the value of animation-duration is being dynamically determined based on the value of --i. If the value of --i is small, then the animation duration will be longer, and if the value of --i is large, then the animation duration will be shorter. */
+}
+
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(+10vh) scale(1);
+    }
+}
